@@ -4,7 +4,7 @@ interface DayLengthResponse {
 }
 
 const apiClient = axios.create({
-    baseURL: 'https://sunlight-backend-gcp.web.app/', //backend url
+    baseURL: 'https://us-central1-sunlight-backend-gcp.cloudfunctions.net/api/', //backend url
    // baseURL: 'http://localhost:8080', //backend url
 });
 
