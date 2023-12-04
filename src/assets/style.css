@@ -1,0 +1,37 @@
+body {
+    font-family: Avenir, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+    color: #2c3e50;
+    background: #f5f5f5;
+}
+
+nav {
+    padding: 30px;
+}
+
+nav a {
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+nav a.router-link-exact-active {
+    color: #42b983;
+}
+
+.page-header{
+    background: linear-gradient(90deg, rgb(255, 190, 0) 0%, rgb(0, 23, 93) 100%);
+
+}
+
+.page-title{
+    color: #fff;
+}
+
+.card{
+    min-width: 200px;
+    margin: 5px;
+    padding: 10px;
+
+}
