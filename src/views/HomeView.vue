@@ -59,7 +59,7 @@ export default class HomeView extends Vue {
 
   get datesForYear() {
     const currentDate = DateTime.now();
-    const targetDayOfMonth = 31//currentDate.day;
+    const targetDayOfMonth = currentDate.day;
     const currentYear = currentDate.year;
 
     return Array.from({length: 12}, (_, monthIndex) => {
