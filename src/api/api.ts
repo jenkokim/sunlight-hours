@@ -4,7 +4,8 @@ interface DayLengthResponse {
 }
 
 const apiClient = axios.create({
-    baseURL: 'http://localhost:8080', //backend url
+    baseURL: 'https://sunlight-backend-gcp.web.app/', //backend url
+   // baseURL: 'http://localhost:8080', //backend url
 });
 
 export const getDayLength = async (
