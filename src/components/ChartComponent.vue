@@ -7,7 +7,7 @@
 <script>
 import { Chart, registerables } from 'chart.js';
 import { BarChart, useBarChart } from 'vue-chart-3';
-import { ref, computed, defineComponent } from 'vue';
+import { ref, defineComponent } from 'vue';
 
 Chart.register(...registerables);
 
