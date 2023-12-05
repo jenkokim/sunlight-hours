@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@types/luxon": "^3.3.6",
+    "@vuepic/vue-datepicker": "^7.3.0",
     "axios": "^1.6.2",
     "bootstrap": "^5.3.2",
     "chart.js": "^3.9.1",

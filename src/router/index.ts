@@ -1,6 +1,7 @@
 import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import ChartView from '../views/ChartView.vue'
+import DatePickerView from '../views/DatePickerView.vue'
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -12,6 +13,11 @@ const routes: Array<RouteRecordRaw> = [
     path: '/chart',
     name: 'chart',
     component: ChartView
+  },
+  {
+    path: '/date-picker',
+    name: 'date-picker',
+    component: DatePickerView
   },
 ]
 

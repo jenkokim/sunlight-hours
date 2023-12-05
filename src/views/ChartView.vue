@@ -16,7 +16,7 @@ import {getDayLength} from '@/api/api';
     ChartComponent,
   },
 })
-export default class HomeView extends Vue {
+export default class ChartView extends Vue {
   lat = 0;
   lng = 0;
   dayLengthArray: number[] = [];
@@ -38,7 +38,6 @@ export default class HomeView extends Vue {
           (position) => {
             this.lat = position.coords.latitude;
             this.lng = position.coords.longitude;
-
           },
           (error) => {
             console.error('Error getting position:', error);
@@ -61,20 +60,20 @@ export default class HomeView extends Vue {
     }
   }
 
-  async created() {
+  async mounted() {
     await this.fetchCurrentLocation();
+    setTimeout(async ()=>{
     const dates = this.datesForYear();
     for (const date of dates) {
-      if (this.lat != null && this.lng != null) {
-         await this.fetchData(this.lat, this.lng, date);
+      if (this.lat !== null && this.lng !== null) {
+          await this.fetchData(this.lat, this.lng, date);
       }
     }
-
+  },500)
   }
 
   data() {
     const validDate = this.datesForYear().filter(date => date !== 'Invalid DateTime');
-    console.log(this.dayLengthArray)
     return {
       chartData: {
         labels: validDate,

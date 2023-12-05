@@ -22,19 +22,39 @@ nav a.router-link-exact-active {
     text-decoration: underline;
 }
 
-.page-header{
+.page-header {
     background: linear-gradient(90deg, rgb(255, 190, 0) 0%, rgb(0, 23, 93) 100%);
 
 }
 
-.page-title{
+.page-title {
     color: #fff;
 }
 
 .card-day,
-.card-header{
+.card-header {
     min-width: 200px;
     margin: .25rem;
     padding: 1rem;
+}
+
+.dp__input {
+    margin-top: 1rem;
+    width: 50%;
+}
+
+.dp__input_icon {
+    left: 25%;
+    margin-top: 0.5rem;
+}
+
+.picker-container button{
+    background: #e9af08;
+    border: none;
+}
+
+.data-picker .daylight-component .card{
+    width: 50%;
+
 }
 

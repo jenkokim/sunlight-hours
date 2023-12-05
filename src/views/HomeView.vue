@@ -26,6 +26,7 @@ import {Options, Vue} from 'vue-class-component';
 import DaylightHours from '@/components/DaylightHours.vue';
 import {DateTime} from 'luxon';
 
+
 @Options({
   components: {
     DaylightHours,
@@ -36,13 +37,13 @@ export default class HomeView extends Vue {
   lat = 0;
   lng = 0;
 
+
   async fetchCurrentLocation() {
     if ('geolocation' in navigator) {
       navigator.geolocation.getCurrentPosition(
           (position) => {
             this.lat = position.coords.latitude;
             this.lng = position.coords.longitude;
-
           },
           (error) => {
             console.error('Error getting position:', error);
@@ -52,7 +53,6 @@ export default class HomeView extends Vue {
       console.error('Geolocation is not supported by your browser')
     }
   }
-
   created() {
     this.fetchCurrentLocation();
   }
