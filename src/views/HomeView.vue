@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <div class="container">
-      <div class="row">
+      <div class="row pt-3">
         <div class="col card today">
           <h3>Actual date</h3>
           <p class="date">{{ this.currentDate }}</p>
@@ -11,15 +11,14 @@
           <p class="coords">{{ lat }} - {{ lng }}</p>
         </div>
       </div>
-      <div class="component-container row d-flex justify-content-between">
+      <div class="component-container pt-3 row d-flex justify-content-between">
         <div v-for="(date, index) in datesForYear" :key="index" class="col card">
-          <DaylightHours v-if="lat !== null && lng !== null" :date="date" :lat="lat" :lng="lng" />
-          <DaylightHours v-else :date="date" :lat=0 :lng=0 />
+          <DaylightHours :date="date" :coordinates="{lat, lng}" />
         </div>
       </div>
     </div>
   </div>
-  <div class="credits">Sunlight data from <a href="https://sunrise-sunset.org/api">Sunrise Sunset API</a></div>
+  <div class="credits pt-3">Sunlight data from <a href="https://sunrise-sunset.org/api">Sunrise Sunset API</a></div>
 </template>
 
 <script lang="ts">
@@ -34,8 +33,8 @@ import {DateTime} from 'luxon';
 })
 export default class HomeView extends Vue {
   currentDate: string  = DateTime.now().toFormat('dd-MM-yyyy');
-  lat: number | null = null;
-  lng: number | null = null;
+  lat = 0;
+  lng = 0;
 
   async fetchCurrentLocation() {
     if ('geolocation' in navigator) {

@@ -2,7 +2,7 @@
   <h5 class="card-title">{{ formattedDate }}</h5>
   <div class="card-body">
     <p class="text">Day Light:</p>
-    <p class="daylight-hours">{{ dayLength }}</p>
+    <p class="daylight-hours">{{ dayLength || '..:..:..' }}</p>
   </div>
 
 </template>
@@ -18,13 +18,13 @@ export default defineComponent({
       type: String,
       required: true,
     },
-    lat: {
-      type: Number,
+    coordinates: {
+      type: Object,
       required: true,
-    },
-    lng: {
-      type: Number,
-      required: true,
+      default: ()=>({
+        lat:0,
+        lng:0
+      })
     },
   },
   data() {
@@ -41,14 +41,16 @@ export default defineComponent({
       }
     },
     handleCoordsChange() {
-      if (this.lat != null && this.lng != null && DateTime.fromISO(this.date).isValid) {
-        this.fetchData(this.lat, this.lng, this.date);
+      if (this.coordinates.lat && this.coordinates.lng && DateTime.fromISO(this.date).isValid) {
+        this.fetchData(this.coordinates.lat, this.coordinates.lng, this.date);
       }
     },
   },
   watch: {
-    lat: 'handleCoordsChange',
-    lng: 'handleCoordsChange',
+    coordinates(val, oldVal){
+      if (val !== oldVal)
+        this.handleCoordsChange()
+    },
     date: 'fetchData',
   },
   created() {
