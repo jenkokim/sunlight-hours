@@ -31,9 +31,10 @@ nav a.router-link-exact-active {
     color: #fff;
 }
 
-.card{
+.card-day,
+.card-header{
     min-width: 200px;
-    margin: 5px;
-    padding: 10px;
-
+    margin: .25rem;
+    padding: 1rem;
 }
+
