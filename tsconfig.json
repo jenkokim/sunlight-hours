@@ -18,6 +18,8 @@
       "webpack-env",
       "@/api",
       "web",
+      "jest",
+      "vue-chartjs",
     ],
     "paths": {
       "@/*": [

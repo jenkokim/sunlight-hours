@@ -2,11 +2,11 @@
   <div class="home">
     <div class="container">
       <div class="row">
-        <div class="col-md-6 today">
+        <div class="col card today">
           <h3>Actual date</h3>
           <p class="date">{{ this.currentDate }}</p>
         </div>
-        <div class="col-md-6 geolocation">
+        <div class="col card geolocation">
           <h3>Actual location</h3>
           <p class="coords">{{ lat }} - {{ lng }}</p>
         </div>
@@ -19,6 +19,7 @@
       </div>
     </div>
   </div>
+  <div class="credits">Sunlight data from <a href="https://sunrise-sunset.org/api">Sunrise Sunset API</a></div>
 </template>
 
 <script lang="ts">
@@ -32,7 +33,7 @@ import {DateTime} from 'luxon';
   },
 })
 export default class HomeView extends Vue {
-  currentDate: string  = DateTime.now().toFormat('yyyy-MM-dd');
+  currentDate: string  = DateTime.now().toFormat('dd-MM-yyyy');
   lat: number | null = null;
   lng: number | null = null;
 
@@ -45,7 +46,7 @@ export default class HomeView extends Vue {
 
           },
           (error) => {
-            console.error('Errore getting position:', error);
+            console.error('Error getting position:', error);
           }
       )
     } else {
@@ -72,7 +73,5 @@ export default class HomeView extends Vue {
   }
 
 }
-</script>
-<style>
 
-</style>
+</script>
